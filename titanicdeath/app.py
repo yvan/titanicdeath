@@ -32,7 +32,6 @@ def get_features():
     if request.form and feature_input.validate_on_submit():
         pred  = get_model_result(request.form['age'], request.form['sex'], request.form['siblings'], request.form['pclass'])
         pred = 'S' if pred[0] else 'D'
-        print(pred)
         return redirect(url_for('prediction_page', p=pred))
     return redirect(url_for('main_page'))
 
