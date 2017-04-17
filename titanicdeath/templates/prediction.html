@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="content-container container">
+
+        {% if prediction == 'D' %}
+        <div class="col-xs-12">
+            <p>YOU DIED!</p>
+            <p>insert fact about survival / death here!</p>
+        </div>
+        {% elif prediction == 'S' %}
+        <div class="col-xs-12">
+            <p>YOU SUVIVED!</p>
+            <p>insert different fact about survival / death here!</p>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

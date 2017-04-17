@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="content-container container">
+        <p class="hexlist-title">titanic death</p>
+        <p>would you have died on the titanic?</p>
+        <p>fill out the form below to find out</p>
+
+        {% if prediction == 'D' %}
+        <div class="col-xs-12">
+            <p>YOU DIED!</p>
+            <p>insert fact about survival / death here!</p>
+        </div>
+        {% elif prediction == 'S' %}
+        <div class="col-xs-12">
+            <p>YOU SUVIVED!</p>
+            <p>insert different fact about survival / death here!</p>
+        </div>
+        {% else %}
+        <div class="col-xs-12">
+            <form action="/internal/submit_user_features" method="POST" name="link_submit">
+                <div id="make-hex-form" class="hexlist-form input-container form-group form-group">
+                  {{ form.hidden_tag() }}
+
+                  {{ form.age(class="form-control",rows="20") }}
+                  {{ form.sex(class="form-control",rows="20") }}
+                  {{ form.siblings(class="form-control",rows="20") }}
+                  {{ form.parents(class="form-control",rows="20") }}
+                  {{ form.pclass(class="form-control",rows="20") }}
+
+                </div>
+                <div class="col-xs-12 center-block">
+                  <button type="submit" class="btn btn-default center-block">would i die?</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
