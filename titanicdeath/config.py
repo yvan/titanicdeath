@@ -8,7 +8,7 @@ class Config(object):
     CSRF_ENABLED = True
     WTF_CSRF_ENABLED = True
     SECRET_KEY = os.environ['FLASK_SECRET_KEY']
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     APP_STATIC = os.path.join(APP_ROOT, 'static')
 
