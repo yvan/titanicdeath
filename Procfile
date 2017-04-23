@@ -1,0 +1,1 @@
+web: gunicorn titanicdeath.app:app
