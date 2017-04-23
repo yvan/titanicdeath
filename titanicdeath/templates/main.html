@@ -3,20 +3,21 @@
 {% block content %}
 
     <div class="content-container container">
-        <p class="hexlist-title">titanic death</p>
+        <p class="titanic-title">titanic death</p>
         <p>would you have died on the titanic?</p>
         <p>fill out the form below to find out</p>
 
         <div class="col-xs-12">
             <form action="/internal/submit_user_features" method="POST" name="link_submit">
-                <div id="make-hex-form" class="hexlist-form input-container form-group form-group">
+                <div id="submit-data-form" class="titanic-form input-container form-group form-group">
                   {{ form.hidden_tag() }}
 
+                  {{ form.sex }}
+                  {{ form.pclass }}
+                  {{ form.married }}
                   {{ form.age(class="form-control",rows="20") }}
-                  {{ form.sex(class="form-control",rows="20") }}
                   {{ form.siblings(class="form-control",rows="20") }}
                   {{ form.parents(class="form-control",rows="20") }}
-                  {{ form.pclass(class="form-control",rows="20") }}
 
                 </div>
                 <div class="col-xs-12 center-block">
@@ -24,6 +25,15 @@
                 </div>
             </form>
         </div>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flashes">
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
     </div>
 
 {% endblock %}

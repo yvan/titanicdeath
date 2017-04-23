@@ -16,6 +16,9 @@ app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 logreg = joblib.load(os.path.join(app.config['APP_STATIC'], 'logreg.pkl'))
 age_bands =[[-0.08, 16], [17, 32], [33, 48], [49, 64], [65, 80]]
+df = pd.read_csv(os.path.join(app.config['APP_STATIC'], 'X_train.csv'))
+sex_title_cross = pd.crosstab(df['Title'], df['Sex'])
+df_orig = pd.read_csv(os.path.join(app.config['APP_STATIC'], 'train.csv'))
 
 @app.route('/', methods=['GET'])
 def main_page():
@@ -30,21 +33,33 @@ def prediction_page(p):
 def get_features():
     feature_input = FeatureInput(request.form)
     if request.form and feature_input.validate_on_submit():
-        pred  = get_model_result(request.form['age'], request.form['sex'], request.form['siblings'], request.form['pclass'])
+        pred  = get_model_result(
+        request.form['age'], 
+        request.form['sex'], 
+        request.form['siblings'],
+        request.form['married'],
+        request.form['pclass'])
         pred = 'S' if pred[0] else 'D'
         return redirect(url_for('prediction_page', p=pred))
-    return redirect(url_for('main_page'))
+    else:
+        flash('human! you need to fill each field!')
+        return redirect(url_for('main_page'))
 
-def get_model_result(age, sex, siblings, pclass):
-    #make a dataframe with columns passed in
+def get_model_result(age, sex, siblings, married, pclass):
+    # make a dataframe with columns passed in
     # get new ageband category
-    age =  [i for i,band in enumerate(age_bands) if int(age) < band[1] and int(age) > band[0]][0]
+    if int(age) >= 80:
+        age = 80
+    else:
+        age =  [i for i,band in enumerate(age_bands) if int(age) < band[1] and int(age) > band[0]][0]
     sex = 0 if sex == 'man' else 1
-    pclass = pclass
-    X_df = pd.DataFrame([[pclass, sex, age, 0, 0, 0, 0, int(age)*int(pclass)]], columns=['Pclass','Sex','Age','Fare','Embarked','Title','IsAlone','Age*Class'])
+    pclass = int(pclass)
+    embarkation = int(df['Embarked'].sample(1).values[0])
+    parents_children = int(df_orig['Parch'].sample(1).values[0])
+    siblings_spouses = int(df_orig['SibSp'].sample(1).values[0]) + int(siblings)
+    is_alone = (parents_children + siblings_spouses) > 0
+    title = int(df['Title'][df['Sex'] == sex].sample(1))
+    fare = int(df['Fare'][df['Pclass'] == int(pclass)].sample(1))
+    # pclass, sex, age, fare, embarked, title, isalone, int(age)*int(pclass)
+    X_df = pd.DataFrame([[pclass, sex, age, fare, embarkation, title, is_alone, age*pclass]], columns=['Pclass','Sex','Age','Fare','Embarked','Title','IsAlone','Age*Class'])
     return logreg.predict(X_df)
-
-'''
-https://medium.com/@amirziai/a-flask-api-for-serving-scikit-learn-models-c8bcdaa41daa
-'''
-

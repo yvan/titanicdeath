@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="col-xs-12">
+    <p class="titanic-title">There was an error!</p>
+    <p>error message: <b>{{ error.get('message') }}</b></p>
+    <p>response code: <b>{{ error.get('response_code') }}</b></p>
+</div>
+
+
+{% endblock %}
