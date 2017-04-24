@@ -11,14 +11,11 @@
             <form action="/internal/submit_user_features" method="POST" name="link_submit">
                 <div id="submit-data-form" class="titanic-form input-container form-group form-group">
                   {{ form.hidden_tag() }}
-
                   {{ form.sex }}
                   {{ form.pclass }}
                   {{ form.married }}
                   {{ form.age(class="form-control",rows="20") }}
                   {{ form.siblings(class="form-control",rows="20") }}
-                  {{ form.parents(class="form-control",rows="20") }}
-
                 </div>
                 <div class="col-xs-12 center-block">
                   <button type="submit" class="btn btn-default center-block">would i die?</button>

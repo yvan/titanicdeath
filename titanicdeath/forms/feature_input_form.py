@@ -8,7 +8,7 @@ class FeatureInput(FlaskForm):
     married = RadioField('married', choices=[('married','married'),('unmarried','unmarried')], validators=[validators.Required()]) 
     age = StringField('age', validators=[validators.Required()], render_kw={"placeholder": "how old are you?"})
     siblings = StringField('siblings', validators=[validators.Required()], render_kw={"placeholder": "how many brothers and sisters do you have?"})
-    parents = StringField('parents', validators=[validators.Required()], render_kw={"placeholder": "how many parents do you have?"}) 
+
 '''
 author @yvan
 '''

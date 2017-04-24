@@ -3,7 +3,7 @@ object { width: 135px; height: 40px; padding-bottom: 10px; padding-top: 10px; }
 body { 
   font-family: 'Avenir', sans-serif; 
   color: #F1EED9; /**/
-  background-color: #000000 }
+  background-color: #000000; }
 
 hr { border: 0; height: 1px; background-image: -webkit-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -moz-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -ms-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -o-linear-gradient(left, transparent, #F1EED9, transparent); }
 
@@ -15,34 +15,21 @@ a:link, a:visited, a:hover, a:active { color: #F1EED9; }
 
 p { font-size: 15px; }
 
-#sex li{
+li {
   list-style-type: none;
   display: table;
 }
 
-#sex li *{
-  vertical-align: middle;
-  text-align: center;
+ul {
+  margin: 0;
 }
 
-#pclass li{
-  list-style-type: none; 
-  display: table;
+#submit-data-form {
+  width: 180px;
 }
 
-#pclass li *{
-  vertical-align: middle;
-  text-align: center;
-}
-
-#married li {
-  list-style-type: none; 
-  display: table;
-}
-
-#married li * {
-  vertical-align: middle;
-  text-align: center;
+input[type=radio] {
+  margin-right: 10px;
 }
 
 .divider {
