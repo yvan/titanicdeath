@@ -7,7 +7,7 @@ class FeatureInput(FlaskForm):
     pclass = RadioField('passenger_class', choices=[('1','first class'),('2','second class'), ('3','third class')], validators=[validators.Required()], render_kw={"placeholder": "what class is your ticket in?"})
     married = RadioField('married', choices=[('married','married'),('unmarried','unmarried')], validators=[validators.Required()]) 
     age = StringField('age', validators=[validators.Required()], render_kw={"placeholder": "how old are you?"})
-    siblings = StringField('siblings', validators=[validators.Required()], render_kw={"placeholder": "how many brothers and sisters do you have?"})
+    siblings = StringField('siblings', validators=[validators.Required()], render_kw={"placeholder": "how many siblings do you have?"})
 
 '''
 author @yvan
