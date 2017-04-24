@@ -11,8 +11,11 @@
             <form action="/internal/submit_user_features" method="POST" name="link_submit">
                 <div id="submit-data-form" class="titanic-form input-container form-group form-group">
                   {{ form.hidden_tag() }}
+                  <p class='flava'>are you</p>
                   {{ form.sex }}
+                  <p class='flava'>what class do you usually fly?</p>
                   {{ form.pclass }}
+                  <p class='flava'>are you married?</p>
                   {{ form.married }}
                   {{ form.age(class="form-control",rows="20") }}
                   {{ form.siblings(class="form-control",rows="20") }}

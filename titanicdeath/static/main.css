@@ -2,7 +2,7 @@ object { width: 135px; height: 40px; padding-bottom: 10px; padding-top: 10px; }
 
 body { 
   font-family: 'Avenir', sans-serif; 
-  color: #F1EED9; /**/
+  color: #F1EED9;
   background-color: #000000; }
 
 hr { border: 0; height: 1px; background-image: -webkit-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -moz-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -ms-linear-gradient(left, transparent, #F1EED9, transparent); background-image: -o-linear-gradient(left, transparent, #F1EED9, transparent); }
@@ -24,36 +24,24 @@ ul {
   margin: 0;
 }
 
+.
+
 #submit-data-form {
-  width: 180px;
+  width: 250px;
 }
 
 input[type=radio] {
-  margin-right: 10px;
-}
-
-.divider {
-    content: ' ';
-    display: block;
-    float: left;
-    background: #E8E8E8;
-    margin: 5 0 5 0px;
-    height: 40px;
-    width: 1px;
+  margin-right: 25px;
 }
 
 .flashes { text-align: center; padding: 7.5px 7.5px 7.5px 7.5px; }
 
-.logo { width: 96px; height: 96px; display: inline-block; background-size: cover; }
 .titanic-title { font-size: 2.8em; text-align: center; }
 
-.footer-container { text-align: center; }
 .content-container { max-width: 800px; text-align: center; margin-bottom: 35px }
 .content-container input { color: black; }
 
-.login_referrer { display: none; }
-
-.titanic-form { margin: 0px auto 15px auto }
+.titanic-form { margin: 0px auto 0px auto }
 .form-control {padding: 10px; margin-top: 15px; margin-bottom: 15px;}
 #submit-data-form { max-width: 396px; }
 #add-links-form { max-width: 500px; }
