@@ -2,6 +2,15 @@
 an online web app that that will tell you whether you would have died on the titanic or not.
 
 
+The first question you are probably asking is:
+
+why did i die? or
+
+why did i live?
+
+The biggest determining factor in whether 
+
+
 # phase 1:
 
 i completed the webapp with a basic logistic regression model. i wanted to get the web app stuff out of the way first so i could then play around with which model to use.

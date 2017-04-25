@@ -3,18 +3,15 @@
 {% block content %}
 
     <div class="content-container container">
-
+        <div class="col-xs-12">
         {% if prediction == 'D' %}
-        <div class="col-xs-12">
             <p class="titanic-title">YOU DIED!</p>
-            <p>insert fact about survival / death here!</p>
-        </div>
+            <p><a>why did i die?</a></p>
         {% elif prediction == 'S' %}
-        <div class="col-xs-12">
-            <p class="titanic-title">YOU SUVIVED!</p>
-            <p>insert different fact about survival / death here!</p>
-        </div>
+            <p class="titanic-title">YOU SUVIVED!</p>  
+            <p><a>why did i live?</a></p>          
         {% endif %}
+        </div>
     </div>
 
 {% endblock %}
