@@ -6,10 +6,10 @@
         <div class="col-xs-12">
         {% if prediction == 'D' %}
             <p class="titanic-title">YOU DIED!</p>
-            <p><a target="_blank" href="https://nbviewer.jupyter.org/github/yvan/titanicdeath/blob/master/nbs/blog_writeup.ipynb">why did i die?</a></p>
+            <p><a target="_blank" href="https://nbviewer.jupyter.org/github/yvan/titanicdeath/blob/master/nbs/blog_writeup.ipynb?flush_cache=true">why did i die?</a></p>
         {% elif prediction == 'S' %}
             <p class="titanic-title">YOU SUVIVED!</p>  
-            <p><a target="_blank" href="https://nbviewer.jupyter.org/github/yvan/titanicdeath/blob/master/nbs/blog_writeup.ipynb">why did i live?</a></p>          
+            <p><a target="_blank" href="https://nbviewer.jupyter.org/github/yvan/titanicdeath/blob/master/nbs/blog_writeup.ipynb?flush_cache=true">why did i live?</a></p>          
         {% endif %}
         <a href="{{ url_for('main_page') }}">i want to try again</a>
         </div>
