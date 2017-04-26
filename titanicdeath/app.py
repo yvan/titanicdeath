@@ -42,7 +42,7 @@ def get_features():
         pred = 'S' if pred[0] else 'D'
         return redirect(url_for('prediction_page', p=pred))
     else:
-        flash('human! you need to fill each field!')
+        flash('you need to fill each field properly!')
         return redirect(url_for('main_page'))
 
 def get_model_result(age, sex, siblings, married, pclass):
