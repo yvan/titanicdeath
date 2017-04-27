@@ -51,7 +51,7 @@ def get_model_result(age, sex, siblings, married, pclass):
     if int(age) >= 80:
         age = 80
     else:
-        age =  [i for i,band in enumerate(age_bands) if int(age) < band[1] and int(age) > band[0]][0]
+        age =  [i for i,band in enumerate(age_bands) if int(age) <= band[1] and int(age) >= band[0]][0]
     sex = 0 if sex == 'man' else 1
     pclass = int(pclass)
     embarkation = int(df['Embarked'].sample(1).values[0])
